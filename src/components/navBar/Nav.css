@@ -1,0 +1,37 @@
+.MuiPaper-root{
+	display: none;
+	background-color: #3d4977 !important;
+	color:white !important ;
+}
+.MuiGrid-item {
+    right: 0 !important;
+}
+
+img{
+	height: 42px !important;
+	margin-bottom: -8px;
+}
+
+.MuiSvgIcon-root{
+color: #18202c;
+}
+
+.MylistHere .MuiSvgIcon-root{
+    color: white;
+}
+
+.MuiGrid-item {
+    right: 0 !important;
+}
+
+.MuiTypography-noWrap{
+	font-family: unset;
+    text-transform: uppercase;
+    font-weight: 900 !important;
+    color: #f05921;
+    font-size: 1.8em !important;
+}
+img{
+	height: 42px !important;
+	margin-bottom: -8px;
+}

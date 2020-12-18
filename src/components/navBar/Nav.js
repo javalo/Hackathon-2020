@@ -26,9 +26,9 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import CameraIcon from '@material-ui/icons/Camera';
 import HomeIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-  
-
-const drawerWidth = 240;
+import './Nav.css';
+import {AmplifySignOut, withAuthenticator} from '@aws-amplify/ui-react'
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,13 +37,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   navbar: {
-  
-    background:'#3d4977'
+   alignContent:'right',
+    background:'white'
   },
 
   iconButtonAvatar: {
+     alignContent:"center",
     padding: 4,
-    alignItems:"flex-end" 
+    alignItems:"flex-end" ,
+   
   },
   drawer: {
     width: "10px"
@@ -74,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    marginRight:10,
     whiteSpace: 'nowrap',
   },
   drawerOpen: {
@@ -122,8 +125,6 @@ const MiniDrawer = props =>{
     setOpen(false);
   };
 
-
-
   const itemsList = [
     {
       text: "Home",
@@ -136,9 +137,9 @@ const MiniDrawer = props =>{
       onClick: () => history.push("/about")
     },
     {
-      text: "Contact",
-      icon: <FavoriteIcon />,
-      onClick: () => history.push("/contact")
+      text: "Message",
+      icon: <MailIcon />,
+      onClick: () => history.push("/message")
     },
     {
       text: "Contact",
@@ -149,11 +150,9 @@ const MiniDrawer = props =>{
     {
       text: "Contact",
       icon: <CameraIcon />,
-      onClick: () => history.push("/contact")
+      onClick: () => history.push("/message")
     }
   ];
-
-
 
 
   return (
@@ -165,6 +164,7 @@ const MiniDrawer = props =>{
           [classes.appBarShift]: open,
         })}
       >
+          
         <Toolbar className={classes.navbar}>
           <IconButton
             color="inherit"
@@ -179,13 +179,13 @@ const MiniDrawer = props =>{
           </IconButton>
           
 
-          <Grid item className={classes.iconButtonAvatar} >
+          <Grid item className={classes.toolbarIcon} >
               <IconButton color="inherit" >
                 <Avatar src="https://lh3.googleusercontent.com/-pJ4qGnMc7M8/Ux-xiYNmixE/AAAAAAAADOo/nau_N_va7_83c7fdthqrjj2bO_6P-uh2ACEwYChgbKtQDAL1OcqyP-IsF5LPc199boe9pRJPPt6l92z8iqnuCtO5OP0T_Dp6-gvFHi750UrpCrhcL17AC0Y1bNDXp3AqT8PonALz16OcWx294gGIBvByEAMaFfcc92Z6bQ8hagikjj6jGJTVLLG8wwc_7BM33MJlIqNtAe3zFS4YJ26_Aoeh1YPhZT6JCmyYfJdI9W1ZWAQUGLbCSJrBUoIGkLCHBWip7hT95zb4kJma-MwQdbq1Uz_oEu2t0y0AbB2qnvRn8R7v-SJ_VTsO4hbt5tftCy84eXxLcQK661dMsYKGaG0WKQmhY2AwpXoFni_fMlqG1DWdPhMThP2v9zfOzQXvE_pX-Pa77VJOV0SUcvYyZ61hjX826ScvKgdAN9gRDNtlUVqhxSEX85fwqFIpxiY7RkHdW_WVljt-a1Hw0Ud6qD50vNZa0P8F0PZvR-bSe6t4tuy5tq5CDpwXWIIlfPnD7wnwnvfgwHbklNgtpswyyj_h9He1DKM2I0-uLLvjuplPiSvYZ7WB--gXrsUlpVQuzm03VFIaWF_h-me2yma7geEA6ViGOIcv8szKZYQVb19rDrgHPm0THPqWtVbEa6p8I1A7SJdsvHzK4y7vHZ2qsO42MJZZRMJSm_fwF/w326-h220-p/ProfilePhotos" alt="My Avatar" />
               </IconButton>
             </Grid>
             <Typography variant="h6" noWrap>
-            Serverless
+            <AmplifySignOut></AmplifySignOut>
           </Typography>
 
 
@@ -211,7 +211,7 @@ const MiniDrawer = props =>{
         </div>
         <Divider />
    
-        <List>
+        <List className="MylistHere">
        
           {itemsList.map((item, index) => {
           const { text, icon, onClick } = item;
